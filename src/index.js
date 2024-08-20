@@ -1,4 +1,4 @@
-import "./styles.css";
+
 import { loadHomePage }  from './home-page.js';
 import { loadMenuPage } from "./menu-page";
 import { loadAboutPage } from "./about-page";
@@ -17,9 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
             contentLocation.removeChild(contentLocation.firstChild)
         }
     }
+    // Set current page for styling
+    function setBodyClass(page) {
+        document.body.className = ''; // Clear any existing body classes
+        document.body.classList.add(page); // Add the class corresponding to the page
+    }
     // Loads correct page
     function loadPage(page) {
         clearContent();
+        setBodyClass(page)
     
         switch (page) {
             case 'home':
